@@ -7,7 +7,7 @@ function Home() {
       <div>
         <p className="text-white text-5xl">Welcome!</p>
       </div>
-      <div>
+      <div className="flex flex-col items-center">
         <img src="./src/assets/GraphHeader.svg" alt="Graph" className="mt-4" />
         <p className="text-white text-2xl">AlgoGraphix</p>
       </div>
