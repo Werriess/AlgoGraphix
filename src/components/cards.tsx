@@ -1,13 +1,24 @@
 import "/src/output.css";
+import { useNavigate } from 'react-router-dom';
 
 interface CardProps {
-    name: string;
-  }
+  name: string;
+  route: string;
+}
 
-function Card({ name }: CardProps) {
+function Card({ name, route }: CardProps) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(route);
+  };
+
   return (
-    <div className=" min-w-[250px] max-w-[250px] min-h-[250px] max-h[250px] bg-white p-2 bg-[rgb(255,255,255)] flex justify-center items-center">
-        <p className="text-[rgb(44,135,42)] font-bold border-b">{name}</p>
+    <div
+      className=" min-w-[250px] max-w-[250px] min-h-[250px] max-h[250px] bg-white p-2 bg-[rgb(255,255,255)] flex justify-center items-center cursor-pointer"
+      onClick={handleClick}
+    >
+      <p className="text-[rgb(44,135,42)] font-bold border-b">{name}</p>
     </div>
   );
 }

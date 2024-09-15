@@ -12,7 +12,7 @@ function Home() {
         <p className="text-white text-2xl">AlgoGraphix</p>
       </div>
       <div className="flex items-center justify-center flex-col">
-        <Link to="/Algo">
+        <Link to="/algo">
           <button className="bg-[rgb(44,135,42)] text-white p-2">
             Let's go
           </button>
