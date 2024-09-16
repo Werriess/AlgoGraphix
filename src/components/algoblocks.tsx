@@ -8,31 +8,32 @@ function getUserInput(userInput: string): number[] {
     .filter((value) => !isNaN(value));
 }
 
-async function Bubblesort(
-  arr: number[],
-  setArr: React.Dispatch<React.SetStateAction<number[]>>,
-  delay: number
-) {
-  let sorted = [...arr];
-  let len = sorted.length;
+type AlgoBlockProps = {
+  sortAlgo: (
+    arr: number[],
+    setArr: React.Dispatch<React.SetStateAction<number[]>>,
+    delay: number
+  ) => Promise<void>;
+  name: string;
+  timeComplex: string;
+};
 
-  for (let i = 0; i < len; i++) {
-    for (let j = 0; j < len - i - 1; j++) {
-      if (sorted[j] > sorted[j + 1]) {
-        let temp = sorted[j];
-        sorted[j] = sorted[j + 1];
-        sorted[j + 1] = temp;
-
-        setArr([...sorted]);
-
-        await new Promise((resolve) => setTimeout(resolve, delay));
-      }
-    }
+function generateRandomNumbers(size: number): number[] {
+  const randomNumberArr: number[] = [];
+  for (let i = 0; i < size; i++) {
+    let newNumber = Math.random() * 100;
+    randomNumberArr.push(newNumber);
   }
+  return randomNumberArr;
 }
 
-function AlgoBlock() {
+function scaleToRange(value: number, min: number, max: number, newMin: number, newMax: number): number {
+  return ((value - min) / (max - min)) * (newMax - newMin) + newMin;
+}
+
+function AlgoBlock({ sortAlgo, name, timeComplex }: AlgoBlockProps) {
   const [arr, setArr] = useState<number[]>([]);
+  const [sortingDone, setSortingDone] = useState<boolean>(false);
 
   const showBar = () => {
     const inputElement = document.getElementById("userIn") as HTMLInputElement;
@@ -42,46 +43,72 @@ function AlgoBlock() {
     setArr(parsedArr);
   };
 
-  const handleSort = () => {
-    Bubblesort(arr, setArr, 300);
+  const getRandomNum = () => {
+    const randomNumbers = generateRandomNumbers(30);
+    setArr(randomNumbers);
   };
 
+  const handleSort = async () => {
+    setSortingDone(false); 
+    await sortAlgo(arr, setArr, 50);
+    setSortingDone(true);
+  };
+
+  const minValue = Math.min(...arr, 0); 
+  const maxValue = Math.max(...arr, 0);
+
   return (
-    <div className="w-[977px] bg-[rgb(40,40,40)] h-[500px] md:h-[500px] lg:h-[500px] xl:h-[500px] flex justify-center">
-      <div id="algoBlock" className="flex flex-col gap-8">
-        <div className="flex gap-20">
-          <label className="text-white">Enter values:</label>
-          <input className="bg-[rgb(40,40,40)]" id="userIn" type="text" placeholder="1, 2, 3, 4..." />
+    <div className="w-[977px] bg-[rgb(40,40,40)] flex flex-col justify-center items-center w-[50rem] text-white">
+      <div id="algoBlock" className="flex flex-col gap-8 text-white w-[20rem]">
+        <div id="options" className="flex flex-col gap-8 text-white w-[20rem]">
+          <u>
+            <h1 className="flex justify-center">{name}:</h1>
+          </u>
+          <div className="flex gap-20">
+            <label>Enter values:</label>
+            <input
+              className="bg-[rgb(40,40,40)]"
+              id="userIn"
+              type="text"
+              placeholder="1, 2, 3, 4..."
+            />
+          </div>
+          <button className="bg-[rgb(255,135,42)] p-2 rounded" onClick={showBar}>
+            Add
+          </button>
+          <button
+            className="bg-[rgb(255,135,42)] p-2 rounded"
+            onClick={getRandomNum}
+          >
+            Random numbers
+          </button>
+          <button
+            className="bg-[rgb(255,135,42)] p-2 rounded"
+            onClick={handleSort}
+          >
+            Sort
+          </button>
         </div>
-        <button
-          className="bg-[rgb(255,135,42)] p-2 text-white rounded"
-          onClick={showBar}
-        >
-          Add
-        </button>
-        <button
-          className="bg-[rgb(255,135,42)] p-2 text-white rounded"
-          onClick={handleSort}
-        >
-          Sort
-        </button>
-        <div>
-          <p className="text-white">Original Array: {arr.join(", ")}</p>
-        </div>
-        <div className="flex gap-1">
-          {arr.map((element, index) => (
+      </div>
+      <div className="flex gap-1 h-[15rem] mt-5">
+        {arr.map((element, index) => {
+          const scaledHeight = scaleToRange(element, minValue, maxValue, 0, 100);
+          return (
             <div
               key={index}
               style={{
-                height: (element <= 1 ? element * 10 : element) + "px",
-                backgroundColor: "rgb(44,135,42)",
-                width: "30px",
-                transition: "height 0.3s ease", 
+                height: scaledHeight + "px",
+                backgroundColor: "rgb(255,135,42)",
+                width: "10px",
+                transition: "height 0.3s ease",
               }}
             ></div>
-          ))}
-        </div>
+          );
+        })}
       </div>
+      {sortingDone && (
+        <p>{timeComplex}</p> 
+      )}
     </div>
   );
 }
