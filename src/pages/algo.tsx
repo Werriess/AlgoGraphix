@@ -9,10 +9,7 @@ function Algo() {
           <Card name="Bubble Sort" route="/algo/bubblesort"/>
           <Card name="Merge Sort" route="/algo/mergesort"/>
           <Card name="Insertion Sort" route="/algo/insertionsort"/>
-        </div>
-        <div className="flex flex-wrap justify-center gap-5">
           <Card name="Selection Sort" route="/algo/selectionsort"/>
-          <Card name="Quick Sort" route="/algo/quicksort"/>
         </div>
       </div>
     </div>

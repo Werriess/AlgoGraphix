@@ -7,7 +7,7 @@ export async function selectionAlgo(
   let len = sorted.length;
 
   for (let i = 0; i < len - 1; i++) {
-    let smallestIndex = i; // Assume the current element is the smallest
+    let smallestIndex = i; // Assuming the current element is the smallest
 
     // Find the index of the smallest element in the unsorted part
     for (let j = i + 1; j < len; j++) {

@@ -3,7 +3,6 @@ import { bubbleAlgo } from "../algos/bubbleAlgo";
 import { mergeAlgo } from "../algos/mergeAlgo";
 import { insertionAlgo } from "../algos/insertionAlgo";
 import { selectionAlgo } from "../algos/selectionAlgo";
-import { quicksortAlgo } from "../algos/quickAlgo";
 
 export const algos: {
   [key: string]: {
@@ -35,10 +34,5 @@ export const algos: {
     name: "Selection Sort",
     sortAlgo: selectionAlgo,
     timeComplex: "Time complexity: O(n²)",
-  },
-  quicksort: {
-    name: "Quick Sort",
-    sortAlgo: quicksortAlgo,
-    timeComplex: "Time complexity: O(n*log(n))",
   },
 };

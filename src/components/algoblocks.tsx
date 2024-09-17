@@ -21,7 +21,7 @@ type AlgoBlockProps = {
 function generateRandomNumbers(size: number): number[] {
   const randomNumberArr: number[] = [];
   for (let i = 0; i < size; i++) {
-    let newNumber = Math.random() * 100;
+    let newNumber = Math.floor(Math.random() * 100);
     randomNumberArr.push(newNumber);
   }
   return randomNumberArr;
@@ -89,8 +89,9 @@ function AlgoBlock({ sortAlgo, name, timeComplex }: AlgoBlockProps) {
             Sort
           </button>
         </div>
+        <div className="text-sm">{arr.join(", ")}</div>
       </div>
-      <div className="flex gap-1 h-[15rem] mt-5">
+      <div className="flex justify-center items-center gap-1 h-[15rem] mt-5 ">
         {arr.map((element, index) => {
           const scaledHeight = scaleNumbers(element, minValue, maxValue, 0, 100);
           return (
