@@ -1,50 +1,50 @@
-# React + TypeScript + Vite
+# Algograhix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is a web application that visualizes popular sorting algorithms. It demonstrates how algorithms like Bubble Sort, Merge Sort, and Quick Sort work by sorting an array of numbers step by step.
 
-Currently, two official plugins are available:
+Users can either input their own set of numbers or generate random numbers to visualize how different algorithms sort them.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Five Sorting Algorithms**: Bubble Sort, Merge Sort, Insertion Sort, Selection Sort, and Quick Sort.
+- **User-Provided Input**: Users can enter a list of numbers to see how each algorithm handles sorting.
+- **Random Number Generation**: Alternatively, users can generate a random set of numbers for sorting.
+- **Visual Feedback**: Watch as the array is sorted step by step, with dynamic visualizations updating in real-time.
+- **Algorithm Complexity**: After sorting is complete, the time complexity of the algorithm is displayed.
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+    /src
+    ├── /algos         # Sorting algorithm logic (Bubble, Merge, Quick, etc.)
+    ├── /components    # Reusable UI components like AlgoBlock
+    ├── /pages         # Different pages such as algorithm selection and rendering
+    ├── /util          # Utility functions and the algos config
+    └── App.tsx        # Main application file with routing logic
 ```
+## Technologies used
+- React: Front-end library for building UI components.
+- TypeScript: Adds static typing to the JavaScript codebase.
+- TailwindCSS: Utility-first CSS framework for styling.
+- Vite: Build tool and development server.
+- React Router: For handling routing between pages.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Usage
+**Installation**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Werries/AlgoGraphix.git
+   
+2. Install dependencies:
+   ```bash
+    npm install
+   
+3. Start the development server:
+    ```bash
+    npm run dev
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## How to Use
+1. Select a sorting algorithm on the algo page.
+2. Enter a custom list of numbers or generate random numbers.
+3. Click "Sort" to visualize the sorting process.
+4. The time complexity will be displayed after sorting is complete.

@@ -27,7 +27,7 @@ function generateRandomNumbers(size: number): number[] {
   return randomNumberArr;
 }
 
-function scaleToRange(value: number, min: number, max: number, newMin: number, newMax: number): number {
+function scaleNumbers(value: number, min: number, max: number, newMin: number, newMax: number): number {
   return ((value - min) / (max - min)) * (newMax - newMin) + newMin;
 }
 
@@ -44,7 +44,7 @@ function AlgoBlock({ sortAlgo, name, timeComplex }: AlgoBlockProps) {
   };
 
   const getRandomNum = () => {
-    const randomNumbers = generateRandomNumbers(30);
+    const randomNumbers = generateRandomNumbers(20);
     setArr(randomNumbers);
   };
 
@@ -62,7 +62,7 @@ function AlgoBlock({ sortAlgo, name, timeComplex }: AlgoBlockProps) {
       <div id="algoBlock" className="flex flex-col gap-8 text-white w-[20rem]">
         <div id="options" className="flex flex-col gap-8 text-white w-[20rem]">
           <u>
-            <h1 className="flex justify-center">{name}:</h1>
+            <h1 className="flex justify-center font-bold">{name}:</h1>
           </u>
           <div className="flex gap-20">
             <label>Enter values:</label>
@@ -92,7 +92,7 @@ function AlgoBlock({ sortAlgo, name, timeComplex }: AlgoBlockProps) {
       </div>
       <div className="flex gap-1 h-[15rem] mt-5">
         {arr.map((element, index) => {
-          const scaledHeight = scaleToRange(element, minValue, maxValue, 0, 100);
+          const scaledHeight = scaleNumbers(element, minValue, maxValue, 0, 100);
           return (
             <div
               key={index}

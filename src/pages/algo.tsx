@@ -13,7 +13,6 @@ function Algo() {
         <div className="flex flex-wrap justify-center gap-5">
           <Card name="Selection Sort" route="/algo/selectionsort"/>
           <Card name="Quick Sort" route="/algo/quicksort"/>
-          <Card name="Heap Sort" route="/algo/heapsort"/>
         </div>
       </div>
     </div>
