@@ -1,0 +1,1 @@
+{"root":["./src/vite-env.d.ts","./src/algos/bubblealgo.ts","./src/algos/insertionalgo.ts","./src/algos/mergealgo.ts","./src/algos/selectionalgo.ts","./src/components/algoblocks.tsx","./src/components/cards.tsx","./src/pages/app.tsx","./src/pages/algo.tsx","./src/pages/algorender.tsx","./src/pages/home.tsx","./src/pages/main.tsx","./src/util/algos.tsx"],"version":"5.6.2"}
