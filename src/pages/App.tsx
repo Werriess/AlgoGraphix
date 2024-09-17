@@ -1,7 +1,7 @@
 import "/src/output.css";
 import Home from './home.tsx';
 import Algo from './algo.tsx';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import AlgoRender from "./algorender.tsx";
 
 function App() {
