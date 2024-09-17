@@ -23,10 +23,10 @@ Users can either input their own set of numbers or generate random numbers to vi
     └── App.tsx        # Main application file with routing logic
 ```
 ## Technologies used
-- React:
-- TypeScript:
-- TailwindCSS: 
-- Vite:
+- React
+- TypeScript
+- TailwindCSS
+- Vite
 - React Router
 
 ## Usage
