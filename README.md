@@ -49,4 +49,4 @@ Users can either input their own set of numbers or generate random numbers to vi
 3. Click "Sort" to visualize the sorting process.
 4. The time complexity will be displayed after sorting is complete.
 
-![Algographix Interface](./assets/algographixRead.png)
+![Algographix Interface](/assets/algographixRead.png)
