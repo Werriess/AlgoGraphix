@@ -1,4 +1,4 @@
-# Algograhix
+# Algographix
 
 ## Overview
 This project is a web application that visualizes popular sorting algorithms. It demonstrates how algorithms like Bubble Sort, Merge Sort, Insertion Sort and Selection Sort work by sorting an array of numbers step by step.
