@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Werriess.github.io/AlgoGraphix",
+  "homepage": "https://werriess.github.io/AlgoGraphix",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
